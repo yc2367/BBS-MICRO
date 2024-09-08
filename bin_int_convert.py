@@ -121,35 +121,3 @@ def take_twosComplement(wqb_list, w_bitwidth=8, cellbit=1):
         
         new_wqb_list[w_bitwidth - k] = wqb
     return new_wqb_list
-
-
-def inv_less_bit_twosComplement_conv(wq_int, w_bitwidth=8, group_size=16, device='cpu'):
-    K, C, H, W = wq_int.shape # output channel, input channel, kernel width, kernel height
-    if C < group_size:
-        group_size = C
-    NUM_GROUP = K*W*H*C//group_size
-    wq_int = wq_int.permute([0, 2, 3, 1]).unsqueeze(-1)
-    wq_int = wq_int.view(NUM_GROUP, group_size)
-
-    wqb_twosComplement = int_to_twosComplement(wq_int, w_bitwidth=w_bitwidth, device=device)
-    bit_one_count = torch.sum(wqb_twosComplement, dim=-1)
-    skip_zero = bit_one_count.lt(group_size/2)
-    wqb_twosComplement[skip_zero, :] = 1 - wqb_twosComplement[skip_zero, :]
-
-    return wqb_twosComplement
-
-
-def inv_less_bit_twosComplement_fc(wq_int, w_bitwidth=8, group_size=16, device='cpu'):
-    K, C = wq_int.shape # output channel, input channel, kernel width, kernel height
-    if C < group_size:
-        group_size = C
-    NUM_GROUP = K*C//group_size
-    wq_int = wq_int.unsqueeze(-1)
-    wq_int = wq_int.view(NUM_GROUP, group_size)
-
-    wqb_twosComplement = int_to_twosComplement(wq_int, w_bitwidth=w_bitwidth, device=device)
-    bit_one_count = torch.sum(wqb_twosComplement, dim=-1)
-    skip_zero = bit_one_count.lt(group_size/2)
-    wqb_twosComplement[skip_zero, :] = 1 - wqb_twosComplement[skip_zero, :]
-
-    return wqb_twosComplement
