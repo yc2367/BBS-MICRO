@@ -3,6 +3,15 @@ import torch.nn as nn
 import torch.nn.functional as F
 from bin_int_convert import *
 
+'''
+Definition of function parameters:
+    @param wq_int: baseline quantized integer weight
+    @param w_bitwidth: bit width of the baseline quantized integer weight
+    @param group_size: group size for binary pruning
+    @param num_pruned_column: number of desired bi-directional sparse bit-columns in every weight group
+    @param const_bitwidth: bit width of the BBS constant for the Zero-Point Shifting algorithm
+    @param device: 'cpu' or 'cuda'  
+'''
 
 def roundAvg_conv(wq_int, w_bitwidth: int=8, group_size: int=16, num_pruned_column: int=4, device='cpu'):
     wq_int = wq_int.to(device)
