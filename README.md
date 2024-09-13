@@ -5,7 +5,9 @@ This repository contains the Pytorch re-implementation of the Bit Flip algorithm
 
 `bin_int_convert.py` contains functions for integer-binary conversion.
 
-`bitflip_layer.py` contains functions for Bit Flip, Rounded Averaging, and Zero-point Shifting. All functions support convolution (conv) and fully-connected (fc) layers.
+`bit_flip.py` contains functions for the Bit Flip algorithm. All functions support convolution (conv) and fully-connected (fc) layers.
+
+`binary_pruning.py` contains functions for the Binary Pruning algorithm. All functions support convolution (conv) and fully-connected (fc) layers.
 
 
 ## Citation
