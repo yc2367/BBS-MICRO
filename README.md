@@ -1,7 +1,7 @@
 # Pytorch Implementation of Binary Pruning with Bi-directional Bit-level Sparsity (BBS) \[MICRO'24\]
 
 ## Usage
-This repository contains the Pytorch re-implementation of the Bit Flip algorithm in [BitWave \[HPCA'24\]](https://ieeexplore.ieee.org/document/10476419), and the Binary Pruning algorithm (Rounded Averaging and Zero-point Shifting) in BBS \[MICRO'24\].
+This repository contains the Pytorch re-implementation of the Bit Flip algorithm in [BitWave \[HPCA'24\]](https://ieeexplore.ieee.org/document/10476419), and the Pytorch implementation of the Binary Pruning algorithm (Rounded Averaging and Zero-point Shifting) in BBS \[MICRO'24\].
 
 `bin_int_convert.py` contains functions for integer-binary conversion.
 
