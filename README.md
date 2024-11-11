@@ -14,10 +14,10 @@ All functions of Bit Flip and Binary Pruning support convolution (conv) and full
 ## Citation
 If you use BBS in your research, please cite our paper:
 ```bibtex
-@inproceedings{chen2024micro,
+@article{chen2024micro,
   title={BBS: Bi-directional Bit-level Sparsity for Deep Learning Acceleration},
-  author={Yuzong, Chen and Jian, Meng and Jae-sun, Seo and Mohamed, S. Abdelfattah},
+  author={Yuzong Chen and Jian Meng and Jae-sun Seo and Mohamed S. Abdelfattah},
   journal={57th IEEE/ACM International Symposium on Microarchitecture (MICRO)},
-  year={2024},
+  year={2024}
 }
 ```
